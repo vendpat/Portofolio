@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard Admin</title>
+
+<link rel="stylesheet" href="css/dashboard.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        <h1>Portfolio</h1>
+        <span>Admin Panel</span>
+    </div>
+
+    <ul>
+
+        <li class="active">
+            <a href="dashboard.html">
+                <i class="fa fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="experience.html">
+                <i class="fa fa-briefcase"></i>
+                Experience
+            </a>
+        </li>
+
+        <li>
+            <a href="projects.html">
+                <i class="fa fa-folder"></i>
+                Projects
+            </a>
+        </li>
+
+        <li>
+            <a href="skills.html">
+                <i class="fa fa-code"></i>
+                Skills
+            </a>
+        </li>
+
+        <li class="logout">
+            <a href="#" onclick="logout()">
+                <i class="fa fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+
+        <h1>Dashboard</h1>
+
+        <h3>Selamat Datang Admin</h3>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card blue">
+
+            <div>
+
+                <h3>Total Experience</h3>
+
+                <span id="total-experiences">0</span>
+
+            </div>
+
+            <i class="fa fa-briefcase"></i>
+
+        </div>
+
+        <div class="card indigo">
+
+            <div>
+
+                <h3>Total Projects</h3>
+
+                <span id="total-projects">0</span>
+
+            </div>
+
+            <i class="fa fa-folder"></i>
+
+        </div>
+
+        <div class="card yellow">
+
+            <div>
+
+                <h3>Total Skills</h3>
+
+                <span id="total-skills">0</span>
+
+            </div>
+
+            <i class="fa fa-code"></i>
+
+        </div>
+
+    </div>
+
+    <div class="quick">
+
+        <h2>Quick Action</h2>
+
+        <div class="buttons">
+
+            <a href="experience.html" class="btn">Tambah Experience</a>
+
+            <a href="projects.html" class="btn">Tambah Project</a>
+
+            <a href="skills.html" class="btn">Tambah Skill</a>
+
+        </div>
+
+    </div>
+
+    <div class="latest">
+
+        <h2>Data Terbaru</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Tipe</th>
+
+                    <th>Nama</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="latest-data">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/logout.js"></script>
+
+</body>
+</html>

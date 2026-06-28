@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manage Experience</title>
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/experience.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        <h1>Portfolio</h1>
+        <span>Admin Panel</span>
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="dashboard.html">
+                <i class="fa fa-home"></i>
+                Dashboard
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="experience.html">
+                <i class="fa fa-briefcase"></i>
+                Experience
+            </a>
+        </li>
+
+        <li>
+            <a href="projects.html">
+                <i class="fa fa-folder"></i>
+                Projects
+            </a>
+        </li>
+
+        <li>
+            <a href="skills.html">
+                <i class="fa fa-code"></i>
+                Skills
+            </a>
+        </li>
+        <li class="logout">
+            <a href="#" onclick="logout()">
+                <i class="fa fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<div class="experience-main">
+
+    <!-- FORM -->
+
+    <div class="experience-card">
+
+        <h2>Tambah / Edit Experience</h2>
+
+        <input type="hidden" id="experienceId">
+
+        <label>Periode</label>
+
+        <input
+        type="text"
+        id="periode"
+        placeholder="Contoh : 2024 - Sekarang">
+
+        <div class="experience-grid">
+
+            <div>
+
+                <label>Jabatan / Posisi</label>
+
+                <input
+                type="text"
+                id="jabatan"
+                placeholder="Backend Developer">
+
+            </div>
+
+            <div>
+
+                <label>Perusahaan / Organisasi</label>
+
+                <input
+                type="text"
+                id="perusahaan"
+                placeholder="PT. ABC">
+
+            </div>
+
+        </div>
+
+        <label>Deskripsi</label>
+
+        <textarea
+        id="deskripsi"
+        rows="6"
+        placeholder="Deskripsikan pengalaman..."></textarea>
+
+        <div class="experience-button">
+
+            <button onclick="saveExperience()">
+
+                <i class="fa fa-save"></i>
+
+                Simpan
+
+            </button>
+
+            <button
+            class="reset-btn"
+            onclick="resetForm()">
+
+                Reset
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="experience-card">
+
+        <h2>Daftar Experience</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>No</th>
+                    <th>Periode</th>
+                    <th>Posisi</th>
+                    <th>Perusahaan</th>
+                    <th>Aksi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="experienceTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/experience.js"></script>
+<script src="js/logout.js"></script>
+
+</body>
+</html>

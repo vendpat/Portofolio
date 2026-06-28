@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manage Projects</title>
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/projects.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        <h2>Portfolio</h2>
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="experience.html">
+                    <i class="fa fa-briefcase"></i>
+                    <span>Experience</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="projects.html">
+                    <i class="fa fa-folder"></i>
+                    <span>Projects</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="skills.html">
+                    <i class="fa fa-code"></i>
+                    <span>Skills</span>
+                </a>
+            </li>
+
+            <li class="logout">
+                <a href="#" onclick="logout()">
+                    <i class="fa fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</div>
+
+
+<div class="main">
+
+    <div class="project-card">
+
+        <h2>Tambah / Edit Proyek</h2>
+
+        <input type="hidden" id="projectId">
+
+        <label>Judul Proyek</label>
+        <input type="text" id="nama_proyek">
+
+        <label>Deskripsi</label>
+        <textarea id="deskripsi" rows="6"></textarea>
+
+        <label>Tags</label>
+        <input type="text" id="tags">
+
+        <label>Foto Proyek</label>
+
+        <input
+        type="file"
+        id="gambar"
+        accept="image/*">
+
+        <img id="preview">
+
+        <label>Github</label>
+        <input type="text" id="github_link">
+
+        <label>Demo</label>
+        <input type="text" id="demo_link">
+
+        <div class="button-group">
+
+            <button onclick="saveProject()">
+                <i class="fa fa-save"></i>
+                Simpan
+            </button>
+
+            <button class="cancel" onclick="resetForm()">
+                Reset
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="project-card">
+
+        <h2>Daftar Project</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>No</th>
+                    <th>Foto</th>
+                    <th>Project</th>
+                    <th>Github</th>
+                    <th>Demo</th>
+                    <th>Aksi</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="projectTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/projects.js"></script>
+<script src="js/logout.js"></script>
+
+</body>
+</html>

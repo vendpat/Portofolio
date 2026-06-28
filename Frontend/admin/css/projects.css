@@ -1,0 +1,176 @@
+/* =========================
+    MAIN
+========================= */
+
+.main{
+    margin-left:280px;
+    padding:35px;
+    background:#F4EFE7;
+    min-height:100vh;
+}
+
+/* =========================
+    CARD
+========================= */
+
+.card{
+    background:#FFFDF9;
+    border-radius:18px;
+    padding:35px;
+    margin-bottom:30px;
+    box-shadow:0 8px 20px rgba(95,75,56,.12);
+    display:block;
+}
+
+.card h2{
+    color:#5C4033;
+    margin-bottom:25px;
+}
+
+/* =========================
+    FORM
+========================= */
+
+.form-group{
+    margin-bottom:22px;
+}
+
+.form-group label{
+    display:block;
+    font-weight:600;
+    margin-bottom:8px;
+    color:#5C4033;
+}
+
+.form-group input,
+.form-group textarea{
+    width:100%;
+    padding:13px 15px;
+    border:1px solid #D8C3A5;
+    border-radius:10px;
+    background:#FFFDF9;
+    color:#5C4033;
+    transition:.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+    outline:none;
+    border-color:#8B5E3C;
+    box-shadow:0 0 0 3px rgba(139,94,60,.15);
+}
+
+.preview{
+    margin-top:10px;
+    width:180px;
+    border-radius:10px;
+    display:block;
+    border:3px solid #D8C3A5;
+}
+
+/* =========================
+    BUTTON
+========================= */
+
+.button-group{
+    margin-top:25px;
+    display:flex;
+    gap:15px;
+}
+
+.button-group button{
+    padding:12px 24px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:#fff;
+    background:#8B5E3C;
+    font-weight:600;
+    transition:.3s;
+}
+
+.button-group button:hover{
+    background:#6F4E37;
+}
+
+.cancel{
+    background:#A1887F;
+}
+
+.cancel:hover{
+    background:#8D6E63;
+}
+
+/* =========================
+    TABLE
+========================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    table-layout:fixed;
+    border:1px solid #D8C3A5;
+}
+
+thead th{
+    background:#8B5E3C;
+    color:#fff;
+    padding:15px;
+    text-align:center;
+    font-weight:600;
+}
+
+tbody td{
+    padding:15px;
+    border:1px solid #E5D6C6;
+    text-align:center;
+    vertical-align:middle;
+    word-break:break-word;
+    color:#5C4033;
+}
+
+tbody tr:nth-child(even){
+    background:#F8F3EE;
+}
+
+tbody tr:hover{
+    background:#EFE3D5;
+}
+
+.project-image{
+    width:90px;
+    height:60px;
+    object-fit:cover;
+    border-radius:8px;
+    border:2px solid #D8C3A5;
+}
+
+/* =========================
+    ACTION BUTTON
+========================= */
+
+.btn-edit,
+.btn-delete{
+    border:none;
+    padding:9px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    color:white;
+    transition:.3s;
+}
+
+.btn-edit{
+    background:#A47551;
+}
+
+.btn-edit:hover{
+    background:#8B5E3C;
+}
+
+.btn-delete{
+    background:#8C5A46;
+}
+
+.btn-delete:hover{
+    background:#6F3E2E;
+}

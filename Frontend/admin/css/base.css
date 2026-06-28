@@ -1,0 +1,578 @@
+/* ==============================
+        GOOGLE FONT
+============================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==============================
+        RESET
+============================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#F8F5F2;
+    color:#3E2723;
+}
+
+a{
+    text-decoration:none;
+}
+
+ul{
+    list-style:none;
+}
+
+/* ==============================
+        SIDEBAR
+============================== */
+
+.sidebar{
+
+    position:fixed;
+    top:0;
+    left:0;
+    width:280px;
+    height:100vh;
+
+    background:#4E342E;
+
+    display:flex;
+    flex-direction:column;
+    overflow:auto;
+
+    box-shadow:5px 0 20px rgba(0,0,0,.15);
+
+    z-index:1000;
+
+}
+
+/* ==============================
+        LOGO
+============================== */
+
+.logo{
+
+    padding:30px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo h2{
+
+    color:#FFF8F0;
+    font-size:34px;
+    font-weight:700;
+
+}
+
+.logo span{
+
+    color:#D7CCC8;
+
+}
+
+.logo i{
+
+    margin-right:10px;
+    color:#D7CCC8;
+
+}
+
+/* ==============================
+        MENU
+============================== */
+
+.sidebar nav{
+
+    margin-top:20px;
+
+}
+
+.sidebar li{
+
+    margin:8px 15px;
+
+}
+
+.sidebar li a{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    padding:16px 20px;
+
+    color:#F5F5F5;
+
+    font-size:17px;
+
+    border-radius:12px;
+
+    transition:.3s;
+
+}
+
+.sidebar li a i{
+
+    width:20px;
+    text-align:center;
+    font-size:18px;
+
+}
+
+.sidebar li:hover a{
+
+    background:#6D4C41;
+    color:white;
+
+}
+
+.sidebar li.active a{
+
+    background:#A47551;
+    color:white;
+
+}
+
+/* ==============================
+        MAIN
+============================== */
+
+.main{
+
+    margin-left:280px;
+    min-height:100vh;
+    padding:35px;
+
+}
+
+/* ==============================
+        TOPBAR
+============================== */
+
+.topbar{
+
+    background:#FFFCF8;
+
+    padding:25px 35px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+
+    margin-bottom:35px;
+
+}
+
+.topbar h1{
+
+    font-size:42px;
+
+    color:#4E342E;
+
+}
+
+.admin-info{
+
+    color:#8D6E63;
+
+    font-size:18px;
+
+}
+
+.admin-info span{
+
+    color:#8B5E3C;
+
+    font-weight:700;
+
+}
+
+/* ==============================
+        CARD
+============================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    background:#FFFCF8;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+    transition:.3s;
+
+    border:1px solid #E7DDD5;
+
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(111,78,55,.15);
+
+}
+
+.card .icon{
+
+    width:75px;
+
+    height:75px;
+
+    background:#8B5E3C;
+
+    color:white;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:32px;
+
+}
+
+.card h2{
+
+    font-size:48px;
+
+    color:#4E342E;
+
+}
+
+.card p{
+
+    color:#795548;
+
+    font-size:18px;
+
+}
+
+/* ==============================
+        SECTION
+============================== */
+
+.quick-action,
+.latest-data,
+.quick,
+.latest{
+
+    background:#FFFCF8;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    margin-bottom:35px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
+
+    border:1px solid #E7DDD5;
+
+}
+
+.quick-action h2,
+.latest-data h2,
+.quick h2,
+.latest h2{
+
+    margin-bottom:25px;
+
+    font-size:30px;
+
+    color:#4E342E;
+
+}
+
+/* ==============================
+        BUTTON
+============================== */
+
+.action-buttons,
+.buttons{
+
+    display:flex;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn,
+button{
+
+    background:#8B5E3C;
+
+    color:white;
+
+    padding:14px 26px;
+
+    border-radius:10px;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn:hover,
+button:hover{
+
+    background:#6F4E37;
+
+    transform:translateY(-2px);
+
+}
+
+.cancel{
+
+    background:#8D6E63 !important;
+
+}
+
+.cancel:hover{
+
+    background:#6D4C41 !important;
+
+}
+
+/* ==============================
+        TABLE
+============================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#8B5E3C;
+
+}
+
+thead th{
+
+    color:white;
+
+    padding:18px;
+
+    text-align:left;
+
+}
+
+tbody td{
+
+    padding:18px;
+
+    border-bottom:1px solid #E7DDD5;
+
+}
+
+tbody tr:hover{
+
+    background:#F3E9E1;
+
+}
+
+/* ==============================
+        FORM
+============================== */
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:10px;
+
+    margin-bottom:20px;
+
+    border:1px solid #D7CCC8;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:16px;
+
+    background:white;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:#8B5E3C;
+
+    box-shadow:0 0 0 3px rgba(139,94,60,.15);
+
+}
+
+/* ==============================
+        SCROLLBAR
+============================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#8B5E3C;
+
+    border-radius:20px;
+
+}
+
+/* ==============================
+        RESPONSIVE
+============================== */
+
+@media(max-width:991px){
+
+    .sidebar{
+
+        width:90px;
+
+    }
+
+    .logo h2{
+
+        font-size:0;
+
+    }
+
+    .logo i{
+
+        font-size:30px;
+
+        margin:0;
+
+    }
+
+    .sidebar li a{
+
+        justify-content:center;
+
+        padding:18px;
+
+    }
+
+    .sidebar li a span{
+
+        display:none;
+
+    }
+
+    .sidebar li a{
+
+        font-size:0;
+
+    }
+
+    .sidebar li a i{
+
+        font-size:22px;
+
+    }
+
+    .main{
+
+        margin-left:90px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .topbar{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        text-align:center;
+
+    }
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .action-buttons,
+    .buttons{
+
+        flex-direction:column;
+
+    }
+
+    .btn,
+    button{
+
+        justify-content:center;
+
+        width:100%;
+
+    }
+
+}
