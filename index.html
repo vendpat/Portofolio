@@ -2,237 +2,215 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Portfolio</title>
+<title>My Portfolio</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/Frontend/utama/css/style.css">
+<!-- CSS -->
+<link rel="stylesheet" href="./Frontend/utama/css/style.css">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
-    <link rel="icon" href="/favicon.ico">
+<!-- favicon -->
+<link rel="icon" href="./favicon.ico">
+
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
+<!-- NAVBAR -->
 <nav class="navbar">
 
-    <a href="/Frontend/admin/login.html" class="logo">
-        .iven
-    </a>
+<a href="./Frontend/admin/login.html" class="logo">
+.iven
+</a>
 
-    <ul class="menu">
-
-        <li><a href="#home">Home</a></li>
-
-        <li><a href="#about">About</a></li>
-
-        <li><a href="#skills">Skills</a></li>
-
-        <li><a href="#experiences">Experience</a></li>
-
-        <li><a href="#projects">Projects</a></li>
-
-        <li><a href="#contact">Contact</a></li>
-
-    </ul>
+<ul class="menu">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#experiences">Experience</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
 
 </nav>
 
-    <!-- ================= HERO ================= -->
 
-    <section class="hero" id="home">
+<!-- HERO -->
+<section class="hero" id="home">
 
-        <div class="hero-left">
+<div class="hero-left">
 
-            <div id="hero-content">
+<div id="hero-content">
+<h1>Loading...</h1>
+</div>
 
-                <h1>Loading...</h1>
+<a href="#about" class="btn">
+Explore More
+</a>
 
-            </div>
+</div>
 
-            <a href="#about" class="btn">
-                Explore More
-            </a>
+<div class="hero-right">
 
-        </div>
+<img
+id="profile-photo"
+src="./Frontend/utama/assets/profile.jpg"
+alt="Profile">
 
-        <div class="hero-right">
+</div>
 
-            <img id="profile-photo"
-                src=""
-                alt="Profile">
+</section>
 
-        </div>
 
-    </section>
+<!-- ABOUT -->
+<section id="about">
 
-    <!-- ================= ABOUT ================= -->
+<div class="section-title">
+<h2>About Me</h2>
+<span></span>
+</div>
 
-    <section id="about">
+<div class="about-box">
 
-        <div class="section-title">
+<div id="about-content">
+Loading...
+</div>
 
-            <h2>About Me</h2>
+</div>
 
-            <span></span>
+</section>
 
-        </div>
 
-        <div class="about-box">
+<!-- SKILLS -->
+<section id="skills">
 
-            <div id="about-content">
+<div class="section-title">
+<h2>Skills</h2>
+<span></span>
+</div>
 
-                Loading...
+<div
+id="skills-container"
+class="grid">
+</div>
 
-            </div>
+</section>
 
-        </div>
 
-    </section>
+<!-- EXPERIENCE -->
+<section id="experiences">
 
-    <!-- ================= SKILLS ================= -->
+<div class="section-title">
+<h2>Experience</h2>
+<span></span>
+</div>
 
-    <section id="skills">
+<div
+id="experiences-container"
+class="timeline">
+</div>
 
-        <div class="section-title">
+</section>
 
-            <h2>Skills</h2>
 
-            <span></span>
+<!-- PROJECT -->
+<section id="projects">
 
-        </div>
+<div class="section-title">
+<h2>Projects</h2>
+<span></span>
+</div>
 
-        <div
-            id="skills-container"
-            class="grid">
+<div
+id="projects-container"
+class="grid">
+</div>
 
-        </div>
+</section>
 
-    </section>
 
-    <!-- ================= EXPERIENCE ================= -->
+<!-- CONTACT -->
+<section id="contact">
 
-    <section id="experiences">
+<div class="section-title">
+<h2>Contact Me</h2>
+<span></span>
+</div>
 
-        <div class="section-title">
+<form id="contactForm">
 
-            <h2>Experience</h2>
+<input
+type="text"
+id="contactName"
+placeholder="Nama Lengkap"
+required>
 
-            <span></span>
+<input
+type="email"
+id="contactEmail"
+placeholder="Email"
+required>
 
-        </div>
+<textarea
+id="contactMessage"
+rows="6"
+placeholder="Tulis pesan..."
+required></textarea>
 
-        <div
-            id="experiences-container"
-            class="timeline">
+<button type="submit">
 
-        </div>
+<i class="fa-solid fa-paper-plane"></i>
 
-    </section>
+Kirim
 
-    <!-- ================= PROJECT ================= -->
+</button>
 
-    <section id="projects">
+</form>
 
-        <div class="section-title">
+</section>
 
-            <h2>Projects</h2>
 
-            <span></span>
+<!-- FOOTER -->
+<footer>
 
-        </div>
+<h3>Portfolio Website</h3>
 
-        <div
-            id="projects-container"
-            class="grid">
+<p>
+© 2026 All Rights Reserved.
+</p>
 
-        </div>
+<div class="social">
 
-    </section>
+<a href="#">
+<i class="fab fa-github"></i>
+</a>
 
-    <!-- ================= CONTACT ================= -->
+<a href="#">
+<i class="fab fa-linkedin"></i>
+</a>
 
-    <section id="contact">
+<a href="#">
+<i class="fab fa-instagram"></i>
+</a>
 
-        <div class="section-title">
+</div>
 
-            <h2>Contact Me</h2>
+</footer>
 
-            <span></span>
 
-        </div>
+<!-- JS -->
+<script src="./Frontend/admin/js/api.js"></script>
 
-        <form id="contactForm">
-
-            <input
-                type="text"
-                id="contactName"
-                placeholder="Nama Lengkap"
-                required>
-
-            <input
-                type="email"
-                id="contactEmail"
-                placeholder="Email"
-                required>
-
-            <textarea
-                id="contactMessage"
-                rows="6"
-                placeholder="Tulis pesan..."
-                required></textarea>
-
-            <button type="submit">
-
-                <i class="fa-solid fa-paper-plane"></i>
-
-                Kirim
-
-            </button>
-
-        </form>
-
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer>
-
-        <h3>Portfolio Website</h3>
-
-        <p>
-            © 2026 All Rights Reserved.
-        </p>
-
-        <div class="social">
-
-            <a href="#"><i class="fab fa-github"></i></a>
-
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-
-            <a href="#"><i class="fab fa-instagram"></i></a>
-
-        </div>
-
-    </footer>
-
-    <!-- API -->
-    <script src="/Frontend/admin/js/api.js"></script>
-
-    <!-- Main JS -->
-    <script src="/Frontend/utama/js/script.js"></script>
+<script src="./Frontend/utama/js/script.js"></script>
 
 </body>
-
 </html>
