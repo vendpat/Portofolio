@@ -4,370 +4,371 @@ window.addEventListener("DOMContentLoaded", () => {
     smoothScroll();
 });
 
-// =========================
-// LOAD PORTFOLIO
-// =========================
+/* =========================
+DATA STATIS (GITHUB PAGES)
+========================= */
 
-async function loadPortfolio() {
+async function loadPortfolio(){
 
-    try {
+const data={
 
-        const response = await fetch(API_URL + "/portfolio");
+profile:{
+nama:"Ivendes Pata Patiallo",
+deskripsi:"Mahasiswa Sistem Informasi UKSW",
+email:"ivendes@example.com",
+telepon:"08xxxxxxxxxx",
+alamat:"Salatiga",
+foto:"./Frontend/utama/assets/profile.jpg"
+},
 
-        const data = await response.json();
+skills:[
+{
+nama_skill:"HTML",
+level_skill:"Advanced"
+},
+{
+nama_skill:"CSS",
+level_skill:"Advanced"
+},
+{
+nama_skill:"Python",
+level_skill:"Intermediate"
+},
+{
+nama_skill:"Flask",
+level_skill:"Intermediate"
+}
+],
 
-        console.log(data);
+experiences:[
+{
+posisi:"Mahasiswa",
+perusahaan:"UKSW",
+tanggal_mulai:"2024-01-01",
+tanggal_selesai:null,
+deskripsi:"Mengembangkan aplikasi web dan portfolio."
+}
+],
 
-        tampilHero(data.profile);
-        tampilAbout(data.profile);
-        tampilSkills(data.skills);
-        tampilExperiences(data.experiences);
-        tampilProjects(data.projects);
+projects:[
+{
+nama_proyek:"Portfolio Website",
+deskripsi:"Website portofolio pribadi berbasis Flask.",
+gambar:"./Frontend/utama/assets/project1.jpg",
+github_link:"https://github.com/vendpat/Portofolio",
+demo_link:"#"
+}
+]
 
-    } catch (error) {
+};
 
-        console.error(error);
-
-    }
+tampilHero(data.profile);
+tampilAbout(data.profile);
+tampilSkills(data.skills);
+tampilExperiences(data.experiences);
+tampilProjects(data.projects);
 
 }
 
-// =========================
-// HERO
-// =========================
+/* =========================
+HERO
+========================= */
 
-function tampilHero(profile) {
+function tampilHero(profile){
 
-    document.getElementById("hero-content").innerHTML = `
+document.getElementById("hero-content").innerHTML=`
 
-        <h1>Hi, I'm <span style="color:#38bdf8">${profile.nama}</span></h1>
+<h1>
+Hi, I'm
+<span style="color:#A67C52">
+${profile.nama}
+</span>
+</h1>
 
-        <p>${profile.deskripsi}</p>
+<p>${profile.deskripsi}</p>
 
-    `;
-
-}
-
-// =========================
-// ABOUT
-// =========================
-
-function tampilAbout(profile) {
-
-    document.getElementById("about-content").innerHTML = `
-
-        <h2>${profile.nama}</h2>
-
-        <br>
-
-        <p>${profile.deskripsi}</p>
-
-        <br>
-
-        <p><strong>Email :</strong> ${profile.email}</p>
-
-        <p><strong>Telepon :</strong> ${profile.telepon}</p>
-
-        <p><strong>Alamat :</strong> ${profile.alamat}</p>
-
-    `;
-
-    const foto = document.getElementById("profile-photo");
-
-    foto.src = profile.foto;
+`;
 
 }
 
-// =========================
-// SKILLS
-// =========================
+/* =========================
+ABOUT
+========================= */
 
-function tampilSkills(skills) {
+function tampilAbout(profile){
 
-    let html = "";
+document.getElementById("about-content").innerHTML=`
 
-    skills.forEach(skill => {
+<h2>${profile.nama}</h2>
 
-        html += `
+<br>
 
-        <div class="card">
+<p>${profile.deskripsi}</p>
 
-            <h3>${skill.nama_skill}</h3>
+<br>
 
-            <br>
+<p><strong>Email :</strong> ${profile.email}</p>
 
-            <p>${skill.level_skill}</p>
+<p><strong>Telepon :</strong> ${profile.telepon}</p>
 
-        </div>
+<p><strong>Alamat :</strong> ${profile.alamat}</p>
 
-        `;
+`;
 
-    });
-
-    document.getElementById("skills-container").innerHTML = html;
-
-}
-
-// =========================
-// EXPERIENCE
-// =========================
-
-function tampilExperiences(experiences) {
-
-    let html = "";
-
-    experiences.forEach(exp => {
-
-        html += `
-
-        <div class="card">
-
-            <h2>${exp.posisi}</h2>
-
-            <br>
-
-            <h4>${exp.perusahaan}</h4>
-
-            <br>
-
-            <small>
-
-                ${formatTanggal(exp.tanggal_mulai)}
-
-                -
-
-                ${formatTanggal(exp.tanggal_selesai)}
-
-            </small>
-
-            <br><br>
-
-            <p>${exp.deskripsi}</p>
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById("experiences-container").innerHTML = html;
+document.getElementById("profile-photo").src=
+profile.foto;
 
 }
 
-// =========================
-// PROJECT
-// =========================
+/* =========================
+SKILLS
+========================= */
 
-function tampilProjects(projects) {
+function tampilSkills(skills){
 
-    let html = "";
+document.getElementById(
+"skills-container"
+).innerHTML=
 
-    projects.forEach(project => {
+skills.map(skill=>`
 
-        html += `
+<div class="card">
 
-        <div class="card">
+<h3>${skill.nama_skill}</h3>
 
-            <img src="${project.gambar}" alt="">
+<p>${skill.level_skill}</p>
 
-            <h3>${project.nama_proyek}</h3>
+</div>
 
-            <br>
-
-            <p>${project.deskripsi}</p>
-
-            <br>
-
-            <a href="${project.github_link}" target="_blank">
-
-                Github
-
-            </a>
-
-            <a href="${project.demo_link}" target="_blank">
-
-                Demo
-
-            </a>
-
-        </div>
-
-        `;
-
-    });
-
-    document.getElementById("projects-container").innerHTML = html;
+`).join("");
 
 }
 
-// =========================
-// FORMAT TANGGAL
-// =========================
+/* =========================
+EXPERIENCE
+========================= */
+
+function tampilExperiences(exps){
+
+document.getElementById(
+"experiences-container"
+).innerHTML=
+
+exps.map(exp=>`
+
+<div class="card">
+
+<h2>${exp.posisi}</h2>
+
+<h4>${exp.perusahaan}</h4>
+
+<br>
+
+<small>
+
+${formatTanggal(exp.tanggal_mulai)}
+
+-
+
+${formatTanggal(exp.tanggal_selesai)}
+
+</small>
+
+<br><br>
+
+<p>${exp.deskripsi}</p>
+
+</div>
+
+`).join("");
+
+}
+
+/* =========================
+PROJECT
+========================= */
+
+function tampilProjects(projects){
+
+document.getElementById(
+"projects-container"
+).innerHTML=
+
+projects.map(project=>`
+
+<div class="card">
+
+<img
+src="${project.gambar}"
+alt="">
+
+<h3>
+
+${project.nama_proyek}
+
+</h3>
+
+<br>
+
+<p>
+
+${project.deskripsi}
+
+</p>
+
+<br>
+
+<a
+href="${project.github_link}"
+target="_blank">
+
+Github
+
+</a>
+
+<a
+href="${project.demo_link}"
+target="_blank">
+
+Demo
+
+</a>
+
+</div>
+
+`).join("");
+
+}
+
+/* =========================
+FORMAT
+========================= */
 
 function formatTanggal(tanggal){
 
-    if(!tanggal) return "-";
+if(!tanggal)
+return "Sekarang";
 
-    return new Date(tanggal).toLocaleDateString("id-ID",{
-
-        day:"numeric",
-
-        month:"long",
-
-        year:"numeric"
-
-    });
+return new Date(
+tanggal
+).toLocaleDateString(
+"id-ID",
+{
+day:"numeric",
+month:"long",
+year:"numeric"
+}
+);
 
 }
 
-// =========================
-// NAVBAR SCROLL
-// =========================
+/* =========================
+NAVBAR
+========================= */
 
 function navbarEffect(){
 
-    const navbar=document.querySelector(".navbar");
+const navbar=
+document.querySelector(
+".navbar"
+);
 
-    window.addEventListener("scroll",()=>{
+window.addEventListener(
+"scroll",
+()=>{
 
-        if(window.scrollY>80){
+if(
+window.scrollY>80
+){
 
-            navbar.style.background="#020617";
-
-            navbar.style.boxShadow="0 10px 25px rgba(0,0,0,.4)";
-
-        }
-
-        else{
-
-            navbar.style.background="rgba(15,23,42,.75)";
-
-            navbar.style.boxShadow="none";
-
-        }
-
-    });
+navbar.style.background=
+"#5A4030";
 
 }
 
-// =========================
-// SMOOTH SCROLL
-// =========================
+else{
+
+navbar.style.background=
+"rgba(245,239,230,.95)";
+
+}
+
+}
+
+);
+
+}
+
+/* =========================
+SCROLL
+========================= */
 
 function smoothScroll(){
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+document
+.querySelectorAll(
+'a[href^="#"]'
+)
 
-        anchor.addEventListener("click",function(e){
+.forEach(anchor=>{
 
-            e.preventDefault();
+anchor
+.addEventListener(
+"click",
 
-            const tujuan=document.querySelector(this.getAttribute("href"));
+function(e){
 
-            tujuan.scrollIntoView({
+e.preventDefault();
 
-                behavior:"smooth"
+document
+.querySelector(
+this.getAttribute(
+"href"
+)
+)
 
-            });
+.scrollIntoView({
 
-        });
+behavior:
+"smooth"
 
-    });
+});
 
 }
 
-// =========================
-// REVEAL ANIMATION
-// =========================
-
-const observer=new IntersectionObserver(entries=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.style.opacity=1;
-
-            entry.target.style.transform="translateY(0)";
-
-        }
-
-    });
+);
 
 });
 
-window.addEventListener("load",()=>{
+}
 
-    document.querySelectorAll("section,.card").forEach(el=>{
+/* =========================
+CONTACT
+========================= */
 
-        el.style.opacity=0;
+const contactForm=
+document.getElementById(
+"contactForm"
+);
 
-        el.style.transform="translateY(40px)";
+if(contactForm){
 
-        el.style.transition=".7s";
+contactForm.addEventListener(
 
-        observer.observe(el);
+"submit",
 
-    });
+function(e){
 
-});
+e.preventDefault();
 
-// =========================
-// CONTACT FORM
-// =========================
+alert(
+"Pesan berhasil dikirim!"
+);
 
-const contactForm = document.getElementById("contactForm");
+contactForm.reset();
 
-if (contactForm) {
+}
 
-    contactForm.addEventListener("submit", async function(e){
-
-        e.preventDefault();
-
-        const nama = document.getElementById("contactName").value;
-        const email = document.getElementById("contactEmail").value;
-        const pesan = document.getElementById("contactMessage").value;
-
-        try{
-
-            const response = await fetch(API_URL + "/contact",{
-
-                method:"POST",
-
-                headers:{
-                    "Content-Type":"application/json"
-                },
-
-                body:JSON.stringify({
-
-                    nama:nama,
-                    email:email,
-                    pesan:pesan
-
-                })
-
-            });
-
-            const result = await response.json();
-
-            alert(result.message || result.error);
-
-            if(response.ok){
-
-                contactForm.reset();
-
-            }
-
-        }
-
-        catch(error){
-
-            console.error(error);
-
-            alert("Gagal mengirim pesan.");
-
-        }
-
-    });
+);
 
 }
