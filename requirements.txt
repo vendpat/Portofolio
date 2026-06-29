@@ -11,3 +11,9 @@ python-dotenv
 cryptography
 cloudinary
 resend
+PyJWT
+flask-jwt-extended
+bcrypt
+passlib
+requests
+gunicorn
