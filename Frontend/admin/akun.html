@@ -1,42 +1,323 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Profile</title>
+<html lang="id">
 
-    <link rel="stylesheet" href="css/base.css">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akun Admin</title>
+
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/akun.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
 </head>
+
 <body>
 
-<div class="container">
+<!-- ================= SIDEBAR ================= -->
 
-    <h2>Data Profile</h2>
+<div class="sidebar">
 
-    <form id="profileForm">
+<div class="logo">
 
-        <input type="text" id="nama" placeholder="Nama">
+<h1>.iven</h1>
 
-        <input type="email" id="email" placeholder="Email">
+<span>Admin Panel</span>
 
-        <input type="text" id="telepon" placeholder="Telepon">
+</div>
 
-        <input type="text" id="alamat" placeholder="Alamat">
+<ul>
 
-        <textarea
-            id="deskripsi"
-            placeholder="Deskripsi">
-        </textarea>
+<li>
 
-        <input type="text" id="foto" placeholder="URL Foto">
+<a href="dashboard.html">
 
-        <button type="submit">
-            Simpan
-        </button>
+<i class="fa-solid fa-house"></i>
 
-    </form>
+Dashboard
+
+</a>
+
+</li>
+
+<li>
+
+<a href="experience.html">
+
+<i class="fa-solid fa-briefcase"></i>
+
+Experience
+
+</a>
+
+</li>
+
+<li>
+
+<a href="projects.html">
+
+<i class="fa-solid fa-folder"></i>
+
+Projects
+
+</a>
+
+</li>
+
+<li>
+
+<a href="skills.html">
+
+<i class="fa-solid fa-code"></i>
+
+Skills
+
+</a>
+
+</li>
+
+<li class="active">
+
+<a href="akun.html">
+
+<i class="fa-solid fa-user"></i>
+
+Akun
+
+</a>
+
+</li>
+
+<li>
+
+<a href="login.html" id="logoutBtn">
+
+<i class="fa-solid fa-right-from-bracket"></i>
+
+Logout
+
+</a>
+
+</li>
+
+</ul>
+
+</div>
+
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+<div class="card">
+
+<h2>Data Diri</h2>
+
+<form id="profileForm">
+
+<div class="grid">
+
+<div class="form-group">
+
+<label>Nama Lengkap</label>
+
+<input
+type="text"
+id="nama">
+
+</div>
+
+<div class="form-group">
+
+<label>Nama Panggilan</label>
+
+<input
+type="text"
+id="nama_panggilan">
+
+</div>
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input
+type="email"
+id="email">
+
+</div>
+
+<div class="form-group">
+
+<label>Telepon</label>
+
+<input
+type="text"
+id="telepon">
+
+</div>
+
+<div class="form-group">
+
+<label>Tempat Lahir</label>
+
+<input
+type="text"
+id="tempat_lahir">
+
+</div>
+
+<div class="form-group">
+
+<label>Tanggal Lahir</label>
+
+<input
+type="date"
+id="tanggal_lahir">
+
+</div>
+
+<div class="form-group">
+
+<label>Universitas</label>
+
+<input
+type="text"
+id="universitas">
+
+</div>
+
+<div class="form-group">
+
+<label>Fakultas</label>
+
+<input
+type="text"
+id="fakultas">
+
+</div>
+
+<div class="form-group">
+
+<label>Program Studi</label>
+
+<input
+type="text"
+id="program_studi">
+
+</div>
+
+<div class="form-group">
+
+<label>Semester</label>
+
+<input
+type="text"
+id="semester">
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Alamat</label>
+
+<input
+type="text"
+id="alamat">
+
+</div>
+
+<div class="form-group">
+
+<label>Deskripsi</label>
+
+<textarea
+id="deskripsi"
+rows="6"></textarea>
+
+</div>
+
+<div class="form-group">
+
+<label>Foto Profil (URL Cloudinary)</label>
+
+<input
+type="text"
+id="foto">
+
+</div>
+
+<div class="form-group">
+
+<img
+id="preview"
+src=""
+style="width:180px;border-radius:12px;display:none;">
+
+</div>
+
+<div class="button-group">
+
+<button type="submit">
+
+<i class="fa-solid fa-floppy-disk"></i>
+
+Simpan
+
+</button>
+
+<button
+type="reset"
+class="cancel">
+
+Reset
+
+</button>
+
+</div>
+
+</form>
+
+</div>
 
 </div>
 
 <script src="js/api.js"></script>
+<script src="js/akun.js"></script>
+
+<script>
+
+const foto=document.getElementById("foto");
+
+const preview=document.getElementById("preview");
+
+foto.addEventListener("input",()=>{
+
+if(foto.value!=""){
+
+preview.src=foto.value;
+
+preview.style.display="block";
+
+}
+
+else{
+
+preview.style.display="none";
+
+}
+
+});
+
+</script>
 
 </body>
 </html>

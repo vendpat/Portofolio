@@ -2,71 +2,33 @@ window.addEventListener("DOMContentLoaded", () => {
     loadPortfolio();
     navbarEffect();
     smoothScroll();
+    contactForm();
 });
 
 /* =========================
-DATA STATIS (GITHUB PAGES)
+LOAD DATA DARI FLASK API
 ========================= */
 
-async function loadPortfolio(){
+async function loadPortfolio() {
 
-const data={
+    try {
 
-profile:{
-nama:"Ivendes Pata Patiallo",
-deskripsi:"Mahasiswa Sistem Informasi UKSW",
-email:"ivendes@example.com",
-telepon:"08xxxxxxxxxx",
-alamat:"Salatiga",
-foto:"./Frontend/utama/assets/profile.jpg"
-},
+        const response = await fetch("/api/portfolio");
+        const data = await response.json();
 
-skills:[
-{
-nama_skill:"HTML",
-level_skill:"Advanced"
-},
-{
-nama_skill:"CSS",
-level_skill:"Advanced"
-},
-{
-nama_skill:"Python",
-level_skill:"Intermediate"
-},
-{
-nama_skill:"Flask",
-level_skill:"Intermediate"
-}
-],
+        console.log("DATA API :", data);
 
-experiences:[
-{
-posisi:"Mahasiswa",
-perusahaan:"UKSW",
-tanggal_mulai:"2024-01-01",
-tanggal_selesai:null,
-deskripsi:"Mengembangkan aplikasi web dan portfolio."
-}
-],
+        tampilHero(data.profile);
+        tampilAbout(data.profile);
+        tampilSkills(data.skills);
+        tampilExperiences(data.experiences);
+        tampilProjects(data.projects);
 
-projects:[
-{
-nama_proyek:"Portfolio Website",
-deskripsi:"Website portofolio pribadi berbasis Flask.",
-gambar:"./Frontend/utama/assets/project1.jpg",
-github_link:"https://github.com/vendpat/Portofolio",
-demo_link:"#"
-}
-]
+    } catch (error) {
 
-};
+        console.error(error);
 
-tampilHero(data.profile);
-tampilAbout(data.profile);
-tampilSkills(data.skills);
-tampilExperiences(data.experiences);
-tampilProjects(data.projects);
+    }
 
 }
 
@@ -74,20 +36,20 @@ tampilProjects(data.projects);
 HERO
 ========================= */
 
-function tampilHero(profile){
+function tampilHero(profile) {
 
-document.getElementById("hero-content").innerHTML=`
+    document.getElementById("hero-content").innerHTML = `
+        <h1>
+            Hi, I'm
+            <span style="color:#A67C52">
+                ${profile.nama}
+            </span>
+        </h1>
 
-<h1>
-Hi, I'm
-<span style="color:#A67C52">
-${profile.nama}
-</span>
-</h1>
+        <p>${profile.deskripsi}</p>
+    `;
 
-<p>${profile.deskripsi}</p>
-
-`;
+    document.getElementById("profile-photo").src = profile.foto;
 
 }
 
@@ -95,28 +57,25 @@ ${profile.nama}
 ABOUT
 ========================= */
 
-function tampilAbout(profile){
+function tampilAbout(profile) {
 
-document.getElementById("about-content").innerHTML=`
+    document.getElementById("about-content").innerHTML = `
 
-<h2>${profile.nama}</h2>
+        <h2>${profile.nama}</h2>
 
-<br>
+        <br>
 
-<p>${profile.deskripsi}</p>
+        <p>${profile.deskripsi}</p>
 
-<br>
+        <br>
 
-<p><strong>Email :</strong> ${profile.email}</p>
+        <p><strong>Email :</strong> ${profile.email}</p>
 
-<p><strong>Telepon :</strong> ${profile.telepon}</p>
+        <p><strong>Telepon :</strong> ${profile.telepon}</p>
 
-<p><strong>Alamat :</strong> ${profile.alamat}</p>
+        <p><strong>Alamat :</strong> ${profile.alamat}</p>
 
-`;
-
-document.getElementById("profile-photo").src=
-profile.foto;
+    `;
 
 }
 
@@ -124,23 +83,19 @@ profile.foto;
 SKILLS
 ========================= */
 
-function tampilSkills(skills){
+function tampilSkills(skills) {
 
-document.getElementById(
-"skills-container"
-).innerHTML=
+    document.getElementById("skills-container").innerHTML = skills.map(skill => `
 
-skills.map(skill=>`
+        <div class="card">
 
-<div class="card">
+            <h3>${skill.nama_skill}</h3>
 
-<h3>${skill.nama_skill}</h3>
+            <p>${skill.level_skill}</p>
 
-<p>${skill.level_skill}</p>
+        </div>
 
-</div>
-
-`).join("");
+    `).join("");
 
 }
 
@@ -148,39 +103,35 @@ skills.map(skill=>`
 EXPERIENCE
 ========================= */
 
-function tampilExperiences(exps){
+function tampilExperiences(experiences) {
 
-document.getElementById(
-"experiences-container"
-).innerHTML=
+    document.getElementById("experiences-container").innerHTML = experiences.map(exp => `
 
-exps.map(exp=>`
+        <div class="card">
 
-<div class="card">
+            <h2>${exp.posisi}</h2>
 
-<h2>${exp.posisi}</h2>
+            <h4>${exp.perusahaan}</h4>
 
-<h4>${exp.perusahaan}</h4>
+            <br>
 
-<br>
+            <small>
 
-<small>
+                ${formatTanggal(exp.tanggal_mulai)}
 
-${formatTanggal(exp.tanggal_mulai)}
+                -
 
--
+                ${formatTanggal(exp.tanggal_selesai)}
 
-${formatTanggal(exp.tanggal_selesai)}
+            </small>
 
-</small>
+            <br><br>
 
-<br><br>
+            <p>${exp.deskripsi}</p>
 
-<p>${exp.deskripsi}</p>
+        </div>
 
-</div>
-
-`).join("");
+    `).join("");
 
 }
 
@@ -188,77 +139,72 @@ ${formatTanggal(exp.tanggal_selesai)}
 PROJECT
 ========================= */
 
-function tampilProjects(projects){
+function tampilProjects(projects) {
 
-document.getElementById(
-"projects-container"
-).innerHTML=
+    document.getElementById("projects-container").innerHTML = projects.map(project => `
 
-projects.map(project=>`
+        <div class="card">
 
-<div class="card">
+            <img
+                src="${project.gambar}"
+                alt="${project.nama_proyek}"
+            >
 
-<img
-src="${project.gambar}"
-alt="">
+            <h3>
 
-<h3>
+                ${project.nama_proyek}
 
-${project.nama_proyek}
+            </h3>
 
-</h3>
+            <br>
 
-<br>
+            <p>
 
-<p>
+                ${project.deskripsi}
 
-${project.deskripsi}
+            </p>
 
-</p>
+            <br>
 
-<br>
+            <a
+                href="${project.github_link}"
+                target="_blank">
 
-<a
-href="${project.github_link}"
-target="_blank">
+                Github
 
-Github
+            </a>
 
-</a>
+            &nbsp;
 
-<a
-href="${project.demo_link}"
-target="_blank">
+            <a
+                href="${project.demo_link}"
+                target="_blank">
 
-Demo
+                Demo
 
-</a>
+            </a>
 
-</div>
+        </div>
 
-`).join("");
+    `).join("");
 
 }
 
 /* =========================
-FORMAT
+FORMAT TANGGAL
 ========================= */
 
-function formatTanggal(tanggal){
+function formatTanggal(tanggal) {
 
-if(!tanggal)
-return "Sekarang";
+    if (!tanggal) return "Sekarang";
 
-return new Date(
-tanggal
-).toLocaleDateString(
-"id-ID",
-{
-day:"numeric",
-month:"long",
-year:"numeric"
-}
-);
+    return new Date(tanggal).toLocaleDateString("id-ID", {
+
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+
+    });
 
 }
 
@@ -266,79 +212,47 @@ year:"numeric"
 NAVBAR
 ========================= */
 
-function navbarEffect(){
+function navbarEffect() {
 
-const navbar=
-document.querySelector(
-".navbar"
-);
+    const navbar = document.querySelector(".navbar");
 
-window.addEventListener(
-"scroll",
-()=>{
+    window.addEventListener("scroll", () => {
 
-if(
-window.scrollY>80
-){
+        if (window.scrollY > 80) {
 
-navbar.style.background=
-"#5A4030";
+            navbar.style.background = "#5A4030";
 
-}
+        } else {
 
-else{
+            navbar.style.background = "rgba(245,239,230,.95)";
 
-navbar.style.background=
-"rgba(245,239,230,.95)";
+        }
 
-}
-
-}
-
-);
+    });
 
 }
 
 /* =========================
-SCROLL
+SMOOTH SCROLL
 ========================= */
 
-function smoothScroll(){
+function smoothScroll() {
 
-document
-.querySelectorAll(
-'a[href^="#"]'
-)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
-.forEach(anchor=>{
+        anchor.addEventListener("click", function (e) {
 
-anchor
-.addEventListener(
-"click",
+            e.preventDefault();
 
-function(e){
+            document.querySelector(this.getAttribute("href")).scrollIntoView({
 
-e.preventDefault();
+                behavior: "smooth"
 
-document
-.querySelector(
-this.getAttribute(
-"href"
-)
-)
+            });
 
-.scrollIntoView({
+        });
 
-behavior:
-"smooth"
-
-});
-
-}
-
-);
-
-});
+    });
 
 }
 
@@ -346,29 +260,20 @@ behavior:
 CONTACT
 ========================= */
 
-const contactForm=
-document.getElementById(
-"contactForm"
-);
+function contactForm() {
 
-if(contactForm){
+    const form = document.getElementById("contactForm");
 
-contactForm.addEventListener(
+    if (!form) return;
 
-"submit",
+    form.addEventListener("submit", function (e) {
 
-function(e){
+        e.preventDefault();
 
-e.preventDefault();
+        alert("Pesan berhasil dikirim!");
 
-alert(
-"Pesan berhasil dikirim!"
-);
+        form.reset();
 
-contactForm.reset();
-
-}
-
-);
+    });
 
 }
